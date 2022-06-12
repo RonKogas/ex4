@@ -4,6 +4,7 @@
 #include <string>
 #include <ostream>
 #include "utilities.h"
+#include "Player.h"
 
 //enum class CardType {Vempire, Goblin, Dragon, Merchant, Treasure, Pitfall, Barfight, Fairy};
 
