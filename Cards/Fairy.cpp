@@ -9,8 +9,12 @@ m_HPToIncrese(HP_TO_INCRESE)
 
 void Fairy::applyEncounter(Player& player) const 
 {
-    if(player.getType()=="Wizard")
+    Wizard* wizardPlayer=dynamic_cast<Wizard*>(&player);
+    if(wizardPlayer!=nullptr)
     {
-        player.heal(m_HPToIncrease);
+        player.heal(this->m_HPToIncrese);
+        printFairyMessage(true);
+        return;
     }
+    printFairyMessage(false);
 }

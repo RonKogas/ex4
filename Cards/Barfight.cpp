@@ -2,14 +2,15 @@
 
 Barfight::Barfight() :
 Card("Barfight"),
-m_damge(DAMAGE)
+m_damage(DAMAGE)
 {
 
 }
 
 void Barfight::applyEncounter(Player& player) const
 {
-    if(player.getType()=="Fighter")
+    Fighter* fighterPlayer=dynamic_cast<Fighter*>(&player);
+    if(fighterPlayer!=nullptr)
     {
         printBarfightMessage(true);
         return;

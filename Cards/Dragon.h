@@ -11,12 +11,13 @@ class Dragon : public Battle
 public:
     Dragon();
     ~Dragon() = default;
-    void applyWin(const Player&) override;
-    void applyLoss(const Player&) override;
+    friend std::ostream& operator<<(std::ostream&, const Dragon&) override;
+    void applyWin(Player&) const override;
+    void applyLoss(Player&) const override;
 
 
 private:
-}
+};
 
 
 

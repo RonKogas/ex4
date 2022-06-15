@@ -4,7 +4,11 @@
 #include <string>
 #include <ostream>
 #include "../utilities.h"
-#include "Player.h"
+#include "../Players/Player.h"
+#include "../Players/Fighter.h"
+#include "../Players/Rouge.h"
+#include "../Players/Wizard.h"
+
 
 //enum class CardType {Vempire, Goblin, Dragon, Merchant, Treasure, Pitfall, Barfight, Fairy};
 
@@ -14,12 +18,12 @@ public:
     Card(std::string type);
     virtual ~Card()=default;
     virtual void applyEncounter(Player& player) const = 0;
-    std::string getType();
-    virtual std::ostream& operator<<(std::ostream&, const Card&);
+    std::string getType() const;
+    friend std::ostream& operator<<(std::ostream&, const Card&);
 private:
     std::string m_type;
     
-}
+};
 
 
 #endif /* CARD_H_ */

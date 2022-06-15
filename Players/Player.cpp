@@ -123,6 +123,10 @@ int Player::getAttackStrength() const {
     return m_force + m_level;
 }
 
+int Player::getCoins() const {
+    return m_coins;
+}
+
 ostream& operator<<(ostream& out, const Player& player)
 {
     printPlayerDetails(out, player.m_name, player.getJob(), player.m_level,

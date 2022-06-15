@@ -14,8 +14,8 @@ public:
 private:
     int m_HPPrice;
     int m_forcePrice;
-}
+};
 
-static void HPPurchase(Player& player);
-static void forcePurchase(Player& player);
+void HPPurchase(Player& player, int amountOfHP, int price);
+void forcePurchase(Player& player, int amountOfForce, int price);
 #endif /*MERCHANT_H_*/

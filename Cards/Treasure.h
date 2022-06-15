@@ -13,6 +13,6 @@ public:
     void applyEncounter(Player& player) const override;
 private:
     int m_coinsInTreasure;
-}
+};
 
 #endif /*TREASURE*/

@@ -12,13 +12,14 @@ class Goblin : public Battle
 public:
     Goblin();
     ~Goblin() = default;
-    void applyWin(const Player&) override;
-    void applyLoss(const Player&) override;
+    friend std::ostream& operator<<(std::ostream&, const Goblin&) override;
+    void applyWin(Player&) const override;
+    void applyLoss(Player&) const override;
 
 
 private:
-    int m_damage
-}
+    int m_damage;
+};
 
 
 

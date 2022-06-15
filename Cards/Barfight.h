@@ -4,7 +4,7 @@
 
 static const int DAMAGE = 10;
 
-class Barfight
+class Barfight : public Card
 {
 public:
     Barfight();
@@ -12,6 +12,6 @@ public:
     void applyEncounter(Player& player) const override;
 private:
     int m_damage;
-}
+};
 
 #endif /*BARFIGHT_H_*/

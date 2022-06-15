@@ -7,14 +7,14 @@ m_type(type)
 
 }
 
-std::string Card::getType()
+std::string Card::getType() const
 {
     return m_type;
 }
 
-std::ostream& Card::operator<<(std::ostream& os, const Card& card) 
+std::ostream& operator<<(std::ostream& os, const Card& card) 
 {
-    printCardDetails(os, this->getType());
+    printCardDetails(os, card.getType());
     printEndOfCardDetails(os);
     return os;
 }

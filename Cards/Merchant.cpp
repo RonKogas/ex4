@@ -48,7 +48,7 @@ void Merchant::applyEncounter(Player& player) const
     }
 }
 
-static void HPPurchase(Player& player, int amountOfHP, int price)
+void HPPurchase(Player& player, int amountOfHP, int price)
 {
     if(player.getCoins()>=price)
     {
@@ -62,9 +62,9 @@ static void HPPurchase(Player& player, int amountOfHP, int price)
     }
 }
 
-static void forcePurchase(Player& player, int amountOfForce, int price)
+void forcePurchase(Player& player, int amountOfForce, int price)
 {
-    if(player.getCoins>=price)
+    if(player.getCoins()>=price)
     {
         player.pay(price);
         player.buff(amountOfForce);

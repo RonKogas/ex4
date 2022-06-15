@@ -121,6 +121,13 @@ public:
     virtual int getAttackStrength() const;
 
     /**
+     * @brief Get the m_Coins object
+     * 
+     * @return int 
+     */
+    int getCoins() const;
+
+    /**
      * using the default copy C'tor, D'tor and assignment operator.
     */
     Player(const Player&) = default;

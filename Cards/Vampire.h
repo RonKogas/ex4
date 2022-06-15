@@ -13,14 +13,15 @@ class Vampire : public Battle
 public:
     Vampire();
     ~Vampire() = default;
-    void applyWin(const Player&) override;
-    void applyLoss(const Player&) override;
+    friend std::ostream& operator<<(std::ostream&, const Vampire&) override;
+    void applyWin(Player&) const override;
+    void applyLoss(Player&) const override;
 
 
 private:
     int m_damage; 
     int m_forceDamage;
-}
+};
 
 
 

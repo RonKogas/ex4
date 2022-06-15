@@ -12,6 +12,6 @@ public:
     void applyEncounter(Player& player) const override;
 private:
     int m_HPToIncrese;
-}
+};
 
 #endif /*FAIRY_H_*/
