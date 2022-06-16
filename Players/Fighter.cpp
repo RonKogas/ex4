@@ -4,12 +4,11 @@ using std::string;
 const string FIGHTER = "Fighter";
 
 Fighter::Fighter(const string name) :
-        Player(name),
-        m_job(FIGHTER)
+        Player(name)
 {}
 
 string Fighter::getJob() const {
-    return m_job;
+    return FIGHTER;
 }
 
 int Fighter::getAttackStrength() const {

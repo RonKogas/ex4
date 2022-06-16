@@ -6,13 +6,11 @@
 class Wizard : public Player {
 public:
     /**
-     * C'tor of Rouge class.
+     * C'tor of Wizard class.
      *
-     * @param name - The name of the player.
-     * @param maxHP - The max HP of the player.
-     * @param force - initial points of force
+     * @param name - The name of the wizard.
      * @return
-     *      A new instance of a rouge.
+     *      A new instance of a Wizard.
     */
     Wizard(const std::string name);
 
@@ -37,9 +35,6 @@ public:
     Wizard(const Wizard&) = default;
     ~Wizard() = default;
     Wizard& operator=(const Wizard& other) = default;
-
-private:
-    std::string m_job;
 };
 
 #endif //WIZARD_H

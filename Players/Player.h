@@ -2,6 +2,7 @@
 #define PLAYER_H
 
 #include <string>
+#include <iostream>
 
 class Player {
 public:
@@ -54,7 +55,7 @@ public:
     /**
      * Decreasing the player force.
      *
-     * @param forceToDecrease - number of force points to Decrease.
+     * @param forceToDecrease - number of force points to decrease.
      * @return
      *      player reference.
     */
@@ -122,8 +123,8 @@ public:
 
     /**
      * @brief Get the m_Coins object
-     * 
-     * @return int 
+     *
+     * @return int
      */
     int getCoins() const;
 

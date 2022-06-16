@@ -4,12 +4,11 @@ using std::string;
 const string WIZARD = "Wizard";
 
 Wizard::Wizard(const string name) :
-        Player(name),
-        m_job(WIZARD)
+        Player(name)
 {}
 
 string Wizard::getJob() const {
-    return m_job;
+    return WIZARD;
 }
 
 Wizard& Wizard::heal(const int HPToIncrease) {

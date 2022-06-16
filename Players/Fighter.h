@@ -6,13 +6,11 @@
 class Fighter : public Player {
 public:
     /**
-     * C'tor of Rouge class.
+     * C'tor of Fighter class.
      *
      * @param name - The name of the player.
-     * @param maxHP - The max HP of the player.
-     * @param force - initial points of force
      * @return
-     *      A new instance of a rouge.
+     *      A new instance of a Fighter.
     */
     Fighter(const std::string name);
 
@@ -36,9 +34,6 @@ public:
     Fighter(const Fighter&) = default;
     ~Fighter() = default;
     Fighter& operator=(const Fighter& other) = default;
-
-private:
-    std::string m_job;
 };
 
 #endif //FIGHTER_H

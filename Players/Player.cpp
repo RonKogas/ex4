@@ -41,11 +41,9 @@ Player& Player::levelUp() {
     return *this;
 }
 
-
 int Player::getLevel() const {
     return m_level;
 }
-
 
 Player& Player::buff(const int forceToIncrease) {
     if(forceToIncrease > 0) {
@@ -82,7 +80,6 @@ Player& Player::heal(const int HPToIncrease) {
     return *this;
 }
 
-
 Player& Player::damage(const int HPToDecrease) {
     if(HPToDecrease > 0) {
         if(m_HP - HPToDecrease >= 0) {
@@ -94,11 +91,9 @@ Player& Player::damage(const int HPToDecrease) {
     return *this;
 }
 
-
 bool Player::isKnockedOut() const {
     return !m_HP;
 }
-
 
 Player& Player::addCoins(const int coinsToAdd) {
     if (coinsToAdd > 0) {
@@ -106,7 +101,6 @@ Player& Player::addCoins(const int coinsToAdd) {
     }
     return *this;
 }
-
 
 bool Player::pay(const int coinsToPay) {
     if((coinsToPay >= 0) && (m_coins - coinsToPay >= 0)) {
