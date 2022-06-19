@@ -1,5 +1,5 @@
 #include "Dragon.h"
-#define DRAGON_DAMAGE (0)
+const int DRAGON_DAMAGE = 0;
 
 Dragon::Dragon():
 Battle("Dragon", DRAGON_FORCE, DRAGON_LOOT)
@@ -18,10 +18,10 @@ void Dragon::applyLoss(Player& player) const
     player.damage(player.getHP());
 }
 
-std::ostream& operator<<(std::ostream& os, const Dragon& dragonCard) 
+std::ostream& Dragon::print(std::ostream& os) const
 {
-    printCardDetails(os, dragonCard.getType());
-    printMonsterDetails(os, dragonCard.m_force, DRAGON_DAMAGE, dragonCard.m_loot, true);
+    printCardDetails(os, this->getType());
+    printMonsterDetails(os, this->m_force, DRAGON_DAMAGE, this->m_loot, true);
     printEndOfCardDetails(os);
     return os;
 }

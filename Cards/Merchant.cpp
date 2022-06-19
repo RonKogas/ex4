@@ -1,7 +1,7 @@
 #include "Merchant.h"
 #include <iostream>
 #include <string>
-#define NO_PURCHASE (0)
+const int NO_PURCHASE = 0;
 
 Merchant::Merchant() :
 Card("Merchant"),

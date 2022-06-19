@@ -3,7 +3,7 @@
 
 #include "Card.h"
 
-static const int COINS_IN_TREASURE = (10);
+const int COINS_IN_TREASURE = 10;
 
 class Treasure : public Card
 {

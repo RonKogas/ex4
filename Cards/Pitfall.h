@@ -2,7 +2,7 @@
 #define PITFALL_H_
 #include "Card.h"
 
-static const int HP_DAMAGE=10;
+const int HP_DAMAGE = 10;
 
 class Pitfall : public Card
 {

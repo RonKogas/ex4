@@ -2,7 +2,7 @@
 #define FAIRY_H_
 #include "Card.h"
 
-#define HP_TO_INCRESE (10)
+const int HP_TO_INCRESE = 10;
 
 class Fairy : public Card
 {

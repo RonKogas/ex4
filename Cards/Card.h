@@ -6,7 +6,7 @@
 #include "../utilities.h"
 #include "../Players/Player.h"
 #include "../Players/Fighter.h"
-#include "../Players/Rouge.h"
+#include "../Players/Rogue.h"
 #include "../Players/Wizard.h"
 
 
@@ -20,6 +20,7 @@ public:
     virtual void applyEncounter(Player& player) const = 0;
     std::string getType() const;
     friend std::ostream& operator<<(std::ostream&, const Card&);
+    virtual std::ostream& print(std::ostream&) const;
 private:
     std::string m_type;
     

@@ -9,7 +9,7 @@ m_damage(HP_DAMAGE)
 
 void Pitfall::applyEncounter(Player& player) const
 {
-    Rouge* rougePlayer=dynamic_cast<Rouge*>(&player);
+    Rogue* rougePlayer=dynamic_cast<Rogue*>(&player);
     if(rougePlayer!=nullptr)
     {
         printPitfallMessage(true);

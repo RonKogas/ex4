@@ -3,16 +3,16 @@
 
 #include "Battle.h"
 
-#define GOBLIN_FORCE (6)
-#define GOBLIN_LOOT (2)
-#define GOBLIN_DAMAGE (10)
+const int GOBLIN_FORCE = 6;
+const int GOBLIN_LOOT = 2;
+const int GOBLIN_DAMAGE = 10;
 
 class Goblin : public Battle
 {
 public:
     Goblin();
     ~Goblin() = default;
-    friend std::ostream& operator<<(std::ostream&, const Goblin&) override;
+    std::ostream& print(std::ostream&) const override;
     void applyWin(Player&) const override;
     void applyLoss(Player&) const override;
 

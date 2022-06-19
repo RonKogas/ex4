@@ -1,6 +1,13 @@
 #ifndef MTMCHKIN_H_
 #define MTMCHKIN_H_
 
+
+#include <deque>
+#include <list>
+#include "Cards/Card.h"
+#include "Players/Player.h"
+
+
 class Mtmchkin{
 
 public:
@@ -46,7 +53,17 @@ public:
     *          int - number of rounds played
     */
     int getNumberOfRounds() const;
+
+    private:
+    std::deque<Card*> m_deck;
+    std::list<Player*> m_actingPlayers;
+    std::list<Player*> m_leaderBoard;
+    int m_numberOfRounds;
 };
+
+void insertWinner(std::list<Player*>& leaderBoard,const Player& player);
+void insertLoser(std::list<Player*>& leaderBoard,const Player& player);
+
 
 
 

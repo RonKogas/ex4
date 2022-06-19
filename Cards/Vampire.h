@@ -3,17 +3,17 @@
 
 #include "Battle.h"
 
-#define VAMPIRE_FORCE (10)
-#define VAMPIRE_LOOT (2)
-#define VAMPIRE_DAMAGE (10)
-#define VAMPIRE_FORCE_DAMAGE (1)
+const int VAMPIRE_FORCE = 10;
+const int VAMPIRE_LOOT = 2;
+const int VAMPIRE_DAMAGE = 10;
+const int VAMPIRE_FORCE_DAMAGE = 1;
 
 class Vampire : public Battle
 {
 public:
     Vampire();
     ~Vampire() = default;
-    friend std::ostream& operator<<(std::ostream&, const Vampire&) override;
+    std::ostream& print(std::ostream&) const override;
     void applyWin(Player&) const override;
     void applyLoss(Player&) const override;
 

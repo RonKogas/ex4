@@ -2,8 +2,8 @@
 #define MERCHENT_H_
 
 #include "Card.h"
-#define HP_PRICE (5)
-#define FORCE_PRICE (10)
+const int HP_PRICE = 5;
+const int FORCE_PRICE = 10;
 
 class Merchant : public Card
 {

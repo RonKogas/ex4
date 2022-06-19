@@ -14,7 +14,12 @@ std::string Card::getType() const
 
 std::ostream& operator<<(std::ostream& os, const Card& card) 
 {
-    printCardDetails(os, card.getType());
+    return card.print(os);
+}
+
+std::ostream& Card::print(std::ostream& os) const
+{
+    printCardDetails(os, this->getType());
     printEndOfCardDetails(os);
     return os;
 }

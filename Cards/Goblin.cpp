@@ -19,10 +19,10 @@ void Goblin::applyLoss(Player& player) const
     player.damage(m_damage);
 }
 
-std::ostream& operator<<(std::ostream& os, const Goblin& goblinCard) 
+std::ostream& Goblin::print(std::ostream& os) const
 {
-    printCardDetails(os, goblinCard.getType());
-    printMonsterDetails(os, goblinCard.m_force, goblinCard.m_damage, goblinCard.m_loot, false);
+    printCardDetails(os, this->getType());
+    printMonsterDetails(os, this->m_force, this->m_damage, this->m_loot, false);
     printEndOfCardDetails(os);
     return os;
 }

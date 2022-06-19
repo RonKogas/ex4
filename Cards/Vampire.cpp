@@ -20,10 +20,10 @@ void Vampire::applyLoss(Player& player) const
     player.decreaseForce(m_forceDamage);
 }
 
-std::ostream& operator<<(std::ostream& os, const Vampire&vampireCard) 
+std::ostream& Vampire::print(std::ostream& os) const
 {
-    printCardDetails(os, vampireCard.getType());
-    printMonsterDetails(os, vampireCard.m_force, vampireCard.m_damage, vampireCard.m_loot, false);
+    printCardDetails(os, this->getType());
+    printMonsterDetails(os,this->m_force, this->m_damage, this->m_loot, false);
     printEndOfCardDetails(os);
     return os;
 }
