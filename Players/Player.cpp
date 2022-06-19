@@ -29,6 +29,11 @@ Player::Player(const string name) :
     }
 }
 
+void Player::printInfo(ostream& out) const
+{
+    return printPlayerDetails(out, m_name, this->getJob(), m_level, m_force, m_HP, m_coins);
+}
+
 const string Player::getName() const
 {
     return m_name;
@@ -123,7 +128,6 @@ int Player::getCoins() const {
 
 ostream& operator<<(ostream& out, const Player& player)
 {
-    printPlayerDetails(out, player.m_name, player.getJob(), player.m_level,
-                       player.m_force, player.m_HP, player.m_coins);
+    player.printInfo(out);
     return out;
 }

@@ -10,12 +10,12 @@ public:
      * C'tor of Player class.
      *
      * @param name - The name of the player.
-     * @param maxHP - The max HP of the player.
-     * @param force - initial points of force
      * @return
      *      A new instance of a player.
     */
     Player(const std::string name);
+
+    virtual void printInfo(std::ostream& out) const;
 
     /**
     * @return
@@ -135,6 +135,8 @@ public:
     virtual ~Player() = default;
     Player& operator=(const Player& other) = default;
 
+    friend std::ostream& operator<<(std::ostream& out, const Player& player);
+
 protected:
     std::string m_name;
     int m_level;
@@ -142,8 +144,6 @@ protected:
     int m_maxHP;
     int m_HP;
     int m_coins;
-
-    friend std::ostream& operator<<(std::ostream& out, const Player& player);
 };
 
 #endif //PLAYER_H
