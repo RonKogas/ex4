@@ -6,6 +6,7 @@
 #include <list>
 #include "Cards/Card.h"
 #include "Players/Player.h"
+#include <memory>
 
 
 class Mtmchkin{
@@ -54,17 +55,21 @@ public:
     */
     int getNumberOfRounds() const;
 
-    private:
-    std::deque<Card*> m_deck;
-    std::list<Player*> m_actingPlayers;
+private:
+    std::deque<std::unique_ptr<Card>> m_deck;
+    std::list<std::unique_ptr<Player>> m_actingPlayers;
     std::list<Player*> m_leaderBoard;
     int m_numberOfRounds;
+
+    void initializeCardDeck(std::ifstream& sourceFile);
+    void addCardToDeck(const std::string cardName, const int currentLine);
+    void initializePlayersList();
+    int getTeamSize();
+    void addPlayerToGame(const std::string name, const std::string job);
 };
 
 void insertWinner(std::list<Player*>& leaderBoard,const Player& player);
 void insertLoser(std::list<Player*>& leaderBoard,const Player& player);
-
-
 
 
 #endif /* MTMCHKIN_H_ */
