@@ -2,7 +2,7 @@
 #define DRAGON_H_
 #include "Battle.h"
 
-const int DRAGON_FORCE = 10;
+const int DRAGON_FORCE = 25;
 const int DRAGON_LOOT = 2;
 
 

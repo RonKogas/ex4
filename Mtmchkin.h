@@ -58,7 +58,8 @@ public:
 private:
     std::deque<std::unique_ptr<Card>> m_deck;
     std::list<std::unique_ptr<Player>> m_actingPlayers;
-    std::list<Player*> m_leaderBoard;
+    std::list<std::unique_ptr<Player>> m_losers;
+    std::list<std::unique_ptr<Player>> m_winners;
     int m_numberOfRounds;
 
     void initializeCardDeck(std::ifstream& sourceFile);
@@ -66,10 +67,11 @@ private:
     void initializePlayersList();
     int getTeamSize();
     void addPlayerToGame(const std::string name, const std::string job);
+    
 };
-
-void insertWinner(std::list<Player*>& leaderBoard,const Player& player);
-void insertLoser(std::list<Player*>& leaderBoard,const Player& player);
+bool isNullptr(std::unique_ptr<Player>& player);
+//void insertWinner(std::list<std::unique_ptr<Player>>& leaderBoard,std::unique_ptr<Player>& player);
+//void insertLoser(std::list<std::unique_ptr<Player>>& leaderBoard,std::unique_ptr<Player>& player);
 
 
 #endif /* MTMCHKIN_H_ */

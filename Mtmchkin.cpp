@@ -38,6 +38,9 @@ const int MINIMUM_PLAYERS_ALLOWED = 2;
 const int MAXIMUM_PLAYERS_ALLOWED = 6;
 const int MIN_AMOUNT_OF_CARDS = 5;
 
+const int WINNING_LEVEL = 10;
+const int LOSING_HP = 0;
+
 
 Mtmchkin::Mtmchkin(const std::string &fileName) {
     printStartGameMessage();
@@ -45,8 +48,16 @@ Mtmchkin::Mtmchkin(const std::string &fileName) {
     if (!sourceFile) {
         throw DeckFileNotFound();
     }
-    initializeCardDeck(sourceFile);
-    initializePlayersList();
+    try
+    {
+        initializeCardDeck(sourceFile);
+        initializePlayersList();
+    }
+    catch(const DeckFileFormatError& deckerror)
+    {
+        std::cout<<deckerror.what();
+    }
+    m_numberOfRounds=0;
 }
 
 void Mtmchkin::initializeCardDeck(std::ifstream& sourceFile)
@@ -139,3 +150,76 @@ void Mtmchkin::addPlayerToGame(const string name, const string job) {
     }
     return m_actingPlayers.push_back(move(buildPlayerMap[job]));
 }
+
+
+void Mtmchkin::playRound()
+{
+    printRoundStartMessage(m_numberOfRounds);
+    for(std::unique_ptr<Player>& player : m_actingPlayers)
+    {
+        printTurnStartMessage(player->getName());
+        unique_ptr<Card> lastCard = move(m_deck.front());
+        lastCard -> applyEncounter(*player);
+        m_deck.push_back(move(lastCard));
+        m_deck.pop_front();
+        if(player->getLevel()==WINNING_LEVEL)
+        {
+            m_winners.push_back(move(player));
+        }
+
+        else if(player->getHP()==LOSING_HP)
+        {
+            m_losers.push_front(move(player));
+        }
+    }
+    m_actingPlayers.remove_if(isNullptr);
+    if(this->isGameOver())
+    {
+        printGameEndMessage();
+    }
+    m_numberOfRounds++;
+}
+
+
+void Mtmchkin::printLeaderBoard() const
+{
+    printLeaderBoardStartMessage();
+    int ranking=1;
+    
+    for(const std::unique_ptr<Player>& player : m_winners)
+    {
+        printPlayerLeaderBoard(ranking++, *(player));
+    }
+    for(const std::unique_ptr<Player>& player : m_actingPlayers)
+    {
+        printPlayerLeaderBoard(ranking++, *(player));
+    }
+    for(const std::unique_ptr<Player>& player : m_losers)
+    {
+        printPlayerLeaderBoard(ranking++, *(player));
+    }
+
+}
+
+ bool Mtmchkin::isGameOver() const
+ {
+    if(m_actingPlayers.size()==0)
+    {
+        return true;
+    }
+    return false;
+ }
+
+ int Mtmchkin::getNumberOfRounds() const
+ {
+    return m_numberOfRounds;
+ }
+
+ bool isNullptr(unique_ptr<Player>& player)
+ {
+    if (player.get()==nullptr)
+    {
+        return true;
+    }
+    return false;    
+ }
