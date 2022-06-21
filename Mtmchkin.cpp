@@ -34,6 +34,7 @@ const string FIGHTER = "Fighter";
 const string ROGUE = "Rogue";
 const string WIZARD = "Wizard";
 const string GENERIC_ERROR_MESSAGE = "Sorry, an error occurred";
+const string SPACE_CHAR = " ";
 const int MINIMUM_PLAYERS_ALLOWED = 2;
 const int MAXIMUM_PLAYERS_ALLOWED = 6;
 const int MIN_AMOUNT_OF_CARDS = 5;
@@ -88,8 +89,8 @@ void Mtmchkin::initializePlayersList()
         try {
             cin.sync();
             getline(cin, userInput);
-            string playerName = userInput.substr(0, userInput.find(" "));
-            string playerJob = userInput.substr(userInput.find(" ") + 1);
+            string playerName = userInput.substr(0, userInput.find(SPACE_CHAR));
+            string playerJob = userInput.substr(userInput.find(SPACE_CHAR) + 1);
             addPlayerToGame(playerName, playerJob);
         } catch (const InvalidPlayerName& nameException) {
             printInvalidName();
