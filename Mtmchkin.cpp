@@ -49,15 +49,8 @@ Mtmchkin::Mtmchkin(const std::string &fileName) {
     if (!sourceFile) {
         throw DeckFileNotFound();
     }
-    try
-    {
-        initializeCardDeck(sourceFile);
-        initializePlayersList();
-    }
-    catch(const DeckFileFormatError& deckerror)
-    {
-        std::cout<<deckerror.what();
-    }
+    initializeCardDeck(sourceFile);
+    initializePlayersList();
     m_numberOfRounds=0;
 }
 
