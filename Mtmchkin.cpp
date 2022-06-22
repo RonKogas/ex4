@@ -93,7 +93,7 @@ void Mtmchkin::initializePlayersList()
     while (playerCounter < teamSize) {
         try {
             cin.sync();
-            getline(cin, userInput,'\n');
+            getline(cin, userInput);
             string playerName = userInput.substr(0, userInput.find(SPACE_CHAR));
             string playerJob = userInput.substr(userInput.find(SPACE_CHAR) + 1);
             addPlayerToGame(playerName, playerJob);
@@ -115,10 +115,11 @@ void Mtmchkin::initializePlayersList()
 
 int Mtmchkin::getTeamSize()
 {
-    printEnterTeamSizeMessage();
+    
     string userInput = "";
     int teamSize = 0;
     while (true) {
+        printEnterTeamSizeMessage();
         getline(cin,userInput);
         if (!isdigit(userInput[0]) || userInput.length() != 1) {
             printInvalidTeamSize();

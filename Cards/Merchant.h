@@ -32,4 +32,5 @@ private:
 
 void HPPurchase(Player& player, int amountOfHP, int price);
 void forcePurchase(Player& player, int amountOfForce, int price);
+bool isDigit(char c);
 #endif /*MERCHANT_H_*/
