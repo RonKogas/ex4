@@ -56,7 +56,7 @@ Mtmchkin::Mtmchkin(const std::string &fileName) {
 
 void Mtmchkin::initializeCardDeck(std::ifstream& sourceFile)
 {
-    string currentCard = "";
+    string currentCard;
     int currentLine = 0;
     while (getline(sourceFile, currentCard)) {
         currentLine++;
@@ -68,6 +68,7 @@ void Mtmchkin::initializeCardDeck(std::ifstream& sourceFile)
 }
 
 void Mtmchkin::addCardToDeck(const string cardName, const int currentLine) {
+    
     std::map<string, std::unique_ptr<Card>> buildCardMap;
     buildCardMap[BARFIGHT] = unique_ptr<Card>(new Barfight());
     buildCardMap[DRAGON] = unique_ptr<Card>(new Dragon());
@@ -92,7 +93,7 @@ void Mtmchkin::initializePlayersList()
     while (playerCounter < teamSize) {
         try {
             cin.sync();
-            getline(cin, userInput);
+            getline(cin, userInput,'\n');
             string playerName = userInput.substr(0, userInput.find(SPACE_CHAR));
             string playerJob = userInput.substr(userInput.find(SPACE_CHAR) + 1);
             addPlayerToGame(playerName, playerJob);
@@ -118,7 +119,7 @@ int Mtmchkin::getTeamSize()
     string userInput = "";
     int teamSize = 0;
     while (true) {
-        cin >> userInput;
+        getline(cin,userInput);
         if (!isdigit(userInput[0]) || userInput.length() != 1) {
             printInvalidTeamSize();
             continue;
@@ -148,7 +149,7 @@ void Mtmchkin::addPlayerToGame(const string name, const string job) {
 
 void Mtmchkin::playRound()
 {
-    printRoundStartMessage(m_numberOfRounds);
+    printRoundStartMessage(m_numberOfRounds+1);
     for(std::unique_ptr<Player>& player : m_actingPlayers)
     {
         printTurnStartMessage(player->getName());

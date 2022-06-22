@@ -16,5 +16,6 @@ void Fairy::applyEncounter(Player& player) const
         printFairyMessage(true);
         return;
     }
+    delete wizardPlayer;
     printFairyMessage(false);
 }

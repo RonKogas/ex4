@@ -15,6 +15,7 @@ void Pitfall::applyEncounter(Player& player) const
         printPitfallMessage(true);
         return;
     }
+    delete rougePlayer;
     printPitfallMessage(false);
     player.damage(m_damage);
 }

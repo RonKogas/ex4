@@ -15,6 +15,7 @@ void Barfight::applyEncounter(Player& player) const
         printBarfightMessage(true);
         return;
     }
+    delete fighterPlayer;
     printBarfightMessage(false);
     player.damage(m_damage);
 }
