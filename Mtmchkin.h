@@ -86,7 +86,7 @@ private:
      * 
      * @return int - number of players
      */
-    int getTeamSize();
+    int getTeamSize() const;
     /**
      * @brief add unique_ptr pointing to Player
      * with name and class given
@@ -97,9 +97,8 @@ private:
     void addPlayerToGame(const std::string name, const std::string job);
     
 };
-bool isNullptr(std::unique_ptr<Player>& player);
-//void insertWinner(std::list<std::unique_ptr<Player>>& leaderBoard,std::unique_ptr<Player>& player);
-//void insertLoser(std::list<std::unique_ptr<Player>>& leaderBoard,std::unique_ptr<Player>& player);
+bool isNullptr(const std::unique_ptr<Player>& player);
+
 
 
 #endif /* MTMCHKIN_H_ */

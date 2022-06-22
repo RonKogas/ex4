@@ -113,7 +113,7 @@ void Mtmchkin::initializePlayersList()
     }
 }
 
-int Mtmchkin::getTeamSize()
+int Mtmchkin::getTeamSize() const
 {
     
     string userInput = "";
@@ -211,7 +211,7 @@ void Mtmchkin::printLeaderBoard() const
     return m_numberOfRounds;
  }
 
- bool isNullptr(unique_ptr<Player>& player)
+ bool isNullptr(const unique_ptr<Player>& player)
  {
     if (player.get()==nullptr)
     {
