@@ -8,8 +8,22 @@ const int FORCE_PRICE = 10;
 class Merchant : public Card
 {
 public:
+    /**
+     * @brief Construct a new Merchant object
+     * 
+     */
     Merchant();
+    /**
+     * @brief Destroy the Merchant object
+     * 
+     */
     ~Merchant()=default;
+    /**
+     * @brief offer player the products defined and apply changes on
+     * player accordingly
+     * 
+     * @param player 
+     */
     void applyEncounter(Player& player) const override;
 private:
     int m_HPPrice;

@@ -62,10 +62,38 @@ private:
     std::list<std::unique_ptr<Player>> m_winners;
     int m_numberOfRounds;
 
+    /**
+     * @brief populate m_deck according to sourcefile
+     * 
+     * @param sourceFile 
+     */
     void initializeCardDeck(std::ifstream& sourceFile);
+    /**
+     * @brief add unique_ptr of card from given type
+     * to m_deck
+     * 
+     * @param cardName - the type of the card ("Goblin","Pitfall" etc)
+     * @param currentLine - the line in deck file
+     */
     void addCardToDeck(const std::string cardName, const int currentLine);
+    /**
+     * @brief populate m_actingPlayer from the user
+     * 
+     */
     void initializePlayersList();
+    /**
+     * @brief Get the Team Size from user
+     * 
+     * @return int - number of players
+     */
     int getTeamSize();
+    /**
+     * @brief add unique_ptr pointing to Player
+     * with name and class given
+     * 
+     * @param name - name of player
+     * @param job - Class of player ("Rogue","Wizard" etc)
+     */
     void addPlayerToGame(const std::string name, const std::string job);
     
 };

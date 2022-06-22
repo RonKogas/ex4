@@ -11,10 +11,32 @@ const int VAMPIRE_FORCE_DAMAGE = 1;
 class Vampire : public Battle
 {
 public:
+    /**
+     * @brief Construct a new Vampire object
+     * 
+     */
     Vampire();
+    /**
+     * @brief Destroy the Vampire object
+     * 
+     */
     ~Vampire() = default;
+    /**
+     * @brief print Vampire's info to given ostream
+     * 
+     * @return std::ostream& 
+     */
     std::ostream& print(std::ostream&) const override;
+    /**
+     * @brief give loot to player
+     * 
+     */
     void applyWin(Player&) const override;
+    /**
+     * @brief decrese 1 force
+     * and 10 HP from player
+     * 
+     */
     void applyLoss(Player&) const override;
 
 
