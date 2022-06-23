@@ -18,7 +18,7 @@ int main() {
     } catch (const DeckFileInvalidSize& exp) {
         cout << exp.what() << endl;
     } catch (const std::exception& exp) {
-        cout << exp.what() <<endl;
+        cout << exp.what() << endl;
     }
     return 0;
 }
